@@ -13,6 +13,15 @@
     <link rel="stylesheet" crossorigin href="/assets/index-DvBUFjqY.css">
   </head>
   <body>
+    <script>
+      // GitHub Pages serves this production build as a static site. The app's
+      // existing router uses the URL hash on github.io, so preserve a direct
+      // pathname as the initial hash before React starts.
+      if (window.location.hostname.endsWith("github.io") && !window.location.hash) {
+        const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+        if (pathname !== "/") window.location.hash = pathname;
+      }
+    </script>
     <div id="root"></div>
     <script defer src="https://manus-analytics.com/umami" data-website-id="1b29d84d-7161-44ec-b26a-f0d6e196b1d7"></script>
   </body>
